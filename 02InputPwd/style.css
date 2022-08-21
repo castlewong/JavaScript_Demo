@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* 防止盒子被挤变形 */
+    box-sizing: border-box;
+}
+
+body{
+    /* flex 布局 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: antiquewhite;
+}
+class selector
+.box{
+    position: relative;
+    width: 300px;
+}
+
+.box .inputBox, .box .checkinputBox{
+    position: relative;
+    width: 100%;
+    background: whitesmoke;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.box .checkinputBox{
+    margin-top: 10px;
+}
+
+.box .inputBox input, .box .checkinputBox input{
+    position: relative;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 10px, 5px;
+}
+
+.box .inputBox #toggleBTN, .box .checkinputBox #toggleBTN{
+    position: relative;
+    top: 8px;
+    
+}
