@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #jumpTo{
+            font-size: xx-large;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Congrat! You paid.</h2>
+        After <span id="jumpTo">10</span> sec(s), you'll return to main page
+        <p><button>return to main page, right now!</button></p>
+    </div>
+    <script>
+        // logic: when this page loaded trigger a timer 10s
+        window.onload = function(){
+            let timer = 10;
+            // this method run function or calculate 
+            // by designated period.
+            setInterval(()=>{
+                timer--;
+                document.getElementById('jumpTo').innerHTML = timer;
+                if(timer == 0){
+                    location.href = 'https://github.com/castlewong'
+                }
+            },1000);
+        }
+        // who is array? why the []?
+        document.getElementsByTagName('button')[0].onclick = function(){
+            location.href = 'https://github.com/castlewong';
+        }
+    </script>
+</body>
+</html>

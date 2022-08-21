@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #eee;
+            padding: 20px;
+            margin: auto;
+        }
+        button{
+            margin: 30px 24px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Good: Good Stuff</p>
+        <p>price: 1080 yuan</p>
+        <p>price on sale: 800 yuan</p>
+        <p>content: Good Content</p>
+        <p>address: Hefei</p>
+        <p>
+            <button>cancel</button>
+            <button>pay</button>
+        </p>
+    </div>
+    <script>
+        //logic: click pay show confirm frame
+        document.getElementsByTagName('button')[1].onclick = function(){
+            let res = window.confirm('You sure you wanna pay?');
+            if(res){
+                location.href = "./succ.html";
+            }
+        }
+    </script>
+</body>
+</html>
