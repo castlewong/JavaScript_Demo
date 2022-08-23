@@ -1,42 +1,37 @@
 *{
-    margin: 0;
-    padding: 0;
-    /* 防止盒子被挤变形 */
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 body{
-    /* flex 布局 */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #c3a183;
+    background: #876445;
 }
-/* class selector */
 .box{
     position: relative;
     width: 300px;
 }
 
-.box .inputBox, .box .checkinputBox{
+.box .inputBox,.box .checkinputBox{
     position: relative;
     width: 100%;
     background: #fff;
-    padding: 12px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
-
 .box .checkinputBox{
     margin-top: 10px;
 }
-
 .box .inputBox input,.box .checkinputBox input{
     position: relative;
     width: 100%;
     outline: none;
     border: none;
-    padding: 10px, 5px;
+    padding: 10px 5px;
 }
 
 .box .inputBox #toggleBtn,.box .checkinputBox #toggleBtn{
@@ -52,26 +47,22 @@ body{
     justify-content: center;
     align-items: center;
 }
-
-/* 伪元素 */
-
-
 .box .inputBox #toggleBtn::before,.box .checkinputBox #toggleBtn::before{
-    content: "\f070";
-    /* font-family 的默认字体大小变了? */
-    font-family: fontAwesome;
-}
-.box .inputBox #toggleBtn.hide::before, .box .checkinputBox #toggleBtn.hide::before{
     content: "\f06e";
     font-family: fontAwesome;
 }
 
+.box .inputBox #toggleBtn.hide::before,.box .checkinputBox #toggleBtn.hide::before{
+    content: "\f070";
+    font-family: fontAwesome;
+}
+
 .validation{
-    background: rgb(48, 27, 27);
+    background: #EDDFB3;
     padding: 20px;
     margin-top: 10px;
     border-radius: 8px;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
 }
 
@@ -79,33 +70,30 @@ body{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
+    gap: 8px;
 }
-
 .validation ul li{
     position: relative;
     list-style: none;
-    color: #c3a183;
-    font-size: 00.85em;
+    color: #876445;
+    font-size: 0.85em;
     transition: 0.5s;
 }
 
 .validation ul li.valid{
-    color: antiquewhite;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .validation ul li::before{
     content: "\f192";
+    width: 20px ;
+    height:10px;
     font-family: fontAwesome;
-    width: 20px;
-    height: 10px;
     display: inline-flex;
-    
 }
 
 .validation ul li.valid::before{
-    content: "\f00c";
+    content: '\f00c';
     font-family: fontAwesome;
-    color: aqua;
+    color: #76BA99;
 }

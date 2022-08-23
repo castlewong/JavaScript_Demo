@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div class="box">
         <div class="inputBox">
             <!-- keyup a method when key is released, value will be transfer into it -->
-            <input type="password" id="pswrd" placeholder="password" 
-            onkeyup="checkPassword(this.value)">
-            <span id="toggleBTN"></span>
+            <input type="password" id="pswrd" placeholder="密码" onkeyup="checkPassword(this.value)">
+            <span id="toggleBtn"></span>
         </div>
         <div class="checkinputBox">
             <!-- keyup a method when key is released, value will be transfer into it -->
-            <input type="password" id="pswrd2" placeholder="plz confirm password" 
-            onkeyup="recheckPassword(this.value)">
-            <span id="toggleBTN"></span>
+            <!-- id最好不一样 -->
+            <input type="password" id="pswrd" placeholder="请确认密码" onkeyup="recheckPassword(this.value)">
+            <span id="toggleBtn"></span>
         </div>
         <div class="validation">
             <ul>
@@ -32,5 +36,90 @@
             </ul>
         </div>
     </div>
+    <script>
+        let pswrds = document.querySelectorAll('#pswrd')
+        let toggleBtns = document.querySelectorAll('#toggleBtn')
+        let lowerCase = document.getElementById('lower')
+        let upperCase = document.getElementById('upper')
+        let numberCase = document.getElementById('number')
+        let specialCase = document.getElementById('special')
+        let minLength = document.getElementById('length')
+        let reCheck = document.getElementById('recheck')
+        let pwd
+
+        // check pwd
+        function checkPassword(data) {
+            pwd = data;
+            //  确定正则判断
+            const lower = new RegExp('(?=.*[a-z])')
+            const upper = new RegExp('(?=.*[A-Z])')
+            const number = new RegExp('(?=.*[0-9])')
+            const special = new RegExp('(?=.*[!@#\$%\^&\*])')
+            const length = new RegExp('(?=.{8,})')
+
+            // 小写字母的判断
+            if (lower.test(data)) {
+                lowerCase.classList.add('valid')
+            } else {
+                lowerCase.classList.remove('valid')
+            }
+
+            // 大写字母的判断
+            if (upper.test(data)) {
+                upperCase.classList.add('valid')
+            } else {
+                upperCase.classList.remove('valid')
+            }
+
+            // num的判断
+            if (number.test(data)) {
+                numberCase.classList.add('valid')
+            } else {
+                numberCase.classList.remove('valid')
+            }
+
+            // 特殊字符的判断
+            if (special.test(data)) {
+                specialCase.classList.add('valid')
+            } else {
+                specialCase.classList.remove('valid')
+            }
+
+
+            // 长度的判断
+            if (length.test(data)) {
+                minLength.classList.add('valid')
+            } else {
+                minLength.classList.remove('valid')
+            }
+        }
+        // recheck pwd
+        function recheckPassword(data) {
+            if (data == '') {
+                reCheck.classList.remove('valid')
+            }
+            else if (data == pwd) {
+                reCheck.classList.add('valid')
+            } else {
+                reCheck.classList.remove('valid')
+            }
+        }
+        //control 密码框的输入隐藏 for循环给数组绑定事件
+        for (let i = 0; i < toggleBtns.length; i++) {
+            toggleBtns[i].onclick = function () {
+                if (pswrd[i].type === 'password') {
+                    pswrd[i].setAttribute('type', 'text')
+                    toggleBtns[i].classList.add('hide')
+                } else {
+                    pswrd[i].setAttribute('type', 'password')
+                    toggleBtns[i].classList.remove('hide')
+
+                }
+            }
+        }
+        
+        
+    </script>
 </body>
+
 </html>
