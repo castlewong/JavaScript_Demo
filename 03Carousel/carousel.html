@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        #banner {
+            width: 800px;
+            height: 400px;
+            border: 9px solid rgb(187, 12, 12);
+            overflow: hidden;
+            position: relative;
+        }
+
+        #banner img {
+            width: 800px;
+            height: 400px;
+        }
+
+        #imgList {
+            width: 3200px;
+            height: 400px;
+        }
+
+        #imgList img {
+            width: 800px;
+            height: 400px;
+
+        }
+
+        #imgList li {
+            float: left;
+        }
+
+        .prev {
+            background: #999;
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            left: 5px;
+            top: 45%;
+            color: aqua;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+
+        }
+
+        .next {
+            background: #666;
+
+            height: 40px;
+
+            width: 30px;
+
+            position: absolute;
+
+            right: 5px;
+
+            top: 45%;
+
+            color: rgb(16, 196, 196);
+
+            line-height: 40px;
+
+            text-align: center;
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner">
+        <ul id="imgList">
+            <!-- connect pics for main structure -->
+            <li><img src="./imgs/the_best_is_yet_to_come-wallpaper-2880x1800.jpg" alt="first img"></li>
+            <li><img src="./imgs/the_simpsons-wallpaper-2880x1800.jpg" alt=""></li>
+            <li><img src="./imgs/toyota_supra_car_racing_drift_night-wallpaper-2880x1800.jpg" alt=""></li>
+            <li><img src="./imgs/the_best_is_yet_to_come-wallpaper-2880x1800.jpg" alt=""></li>
+        </ul>
+        <div class="prev">xlzo
+        </div>
+        <div class="next">xlyz</div>
+    </div>
+    <script>
+        let eprev = document.querySelector('.prev');
+        let enext = document.querySelector('.next');
+        let left = 0;
+        let timer;
+        run();
+        function run() {
+            if (left <= -2400) {
+                left = 0;
+            }
+            imgList.style.marginLeft = left + 'px';
+            // 三元 后面俩选项不需要加=
+            var n = (left % 800 == 0) ? 1200 : 10;
+            left -= 10;
+            timer = setTimeout(run, n);
+        }
+        // make a func for img's location
+        function imgchange(n) {
+            let lt = - (n * 800);
+            imgList.style.marginLeft = lt + 'px';
+            left = lt;
+        }
+        eprev.onclick = function () {
+            // alert("previous img");
+            let prevgo = Math.floor(-left / 800) - 1;
+            if (prevgo == -1) {
+                prevgo == 1;
+            }
+            imgchange(prevgo);
+
+        }
+        enext.onclick = function () {
+            // alert("next img");
+            imgchange(2)
+        }
+    </script>
+</body>
+
+</html>
