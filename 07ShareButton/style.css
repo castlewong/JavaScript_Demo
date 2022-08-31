@@ -1,0 +1,140 @@
+/* 初始化页面 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft-Yahei', sans-serif;
+}
+
+/* 页面背景颜色 */
+body {
+    background: radial-gradient(#333, #000);
+    height: 100vh;
+}
+
+/* mainbox style */
+.mainbox{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* label style */
+label{
+    position: relative;
+    background: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 35px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    display: block;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+
+}
+
+/* hover style of text */
+label:hover{
+    letter-spacing: 4px;
+
+}
+
+/* make frame of text */
+label::before{
+    content: "Cancel";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    border-radius: 35px;
+    /* 不透明度为0 即隐藏 */
+    opacity: 0;
+}
+
+/* handle the input */
+#check{
+    display: none;
+}
+
+/* switch the opacity by input's status */
+#check:checked ~ label::before{
+    opacity: 1;
+}
+
+/* change the icon */
+.media-icons{
+    position: absolute;
+    left: 50%;
+    top: -120px;
+    transform: translateX(-50%);
+    background: #FFF;
+    width: 140%;
+    height: 110%;
+    /* add text-align: try  failed*/
+    text-align: center;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 35px;
+    padding: 4px;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* switch icon frame */
+#check:checked~.media-icons{
+    opacity: 1;
+    pointer-events: auto;
+    top: -84px;
+}
+
+/* make a tiny triangle by rotate a square */
+.media-icons::before{
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 50%;
+    background-color: #FFF;
+    bottom: -9px;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -1;
+}
+
+/* change the a link style */
+.media-icons a{
+    font-size: 22px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.media-icons a:hover{
+    transform: translateY(-2px);
+}
+
+/* change color of icons */
+.media-icons a:nth-child(1):hover{
+    color: rgb(215, 138, 138);
+}
+
+.media-icons a:nth-child(2):hover{
+    color: rgb(22, 177, 42);
+}
+.media-icons a:nth-child(3):hover{
+    color: rgb(144, 169, 42);
+}
+.media-icons a:nth-child(4):hover{
+    color: rgb(107, 54, 206);
+}
