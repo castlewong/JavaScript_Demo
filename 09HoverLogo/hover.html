@@ -1,3 +1,8 @@
+<!-- USE OF indicator
+       mouseover
+       REMOVE classList
+       ADD classList
+       NTH-CHILD -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +54,18 @@
         </ul>
       </div>
       <script>
-        let list = document.querySelector('.list');
-
+        let list = document.querySelectorAll(".list");
+        function setactiveClass() {
+          // get the current item
+          list.forEach((item)=>{
+            // 把list中的active类名去掉
+            item.classList.remove("active");
+            this.classList.add("active");
+          });
+        }
+        list.forEach((item)=>{
+          item.addEventListener("mouseover", setactiveClass);
+        });
       </script>
 </body>
 </html>

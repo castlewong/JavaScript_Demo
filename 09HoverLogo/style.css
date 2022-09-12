@@ -65,6 +65,45 @@ body{
 }
 
 .navigation ul li:hover a .text{
-transform: scale(1);
+    transform: scale(1);
+
 }
 
+.indicator{
+    position: absolute;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator{
+    background: rgb(29, 155, 240);
+    box-shadow: 0 15px 20px rgb(29, 155, 200);
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator{
+    background: rgb(255, 0, 0);
+    box-shadow: 0 15px 25px rgb(255, 0, 0);
+    transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator{
+    background: #07C160;
+    box-shadow: 0 15px 20px #07C160;
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator{
+    background: rgb(0, 118, 180);
+    box-shadow: 0 15px 20px rgb(0, 118, 180);
+    transform: translateX(calc(70px * 3));
+}
+
+.navigation ul li:nth-child(5).active ~ .indicator{
+    background: rgb(153, 153, 153);
+    box-shadow: 0 15px 20px rgb(153, 153, 153);
+    transform: translateX(calc(70px * 4));
+}
