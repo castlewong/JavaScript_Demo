@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="v_code">
+        <div class="code_show">
+            <span class="code" id="checkCode">adf34j</span>
+            <a id="linkbt">看不清换一张</a>
+        </div>
+        <div class="input_code">
+            <label for="inputCode">验证码: </label>
+            <input type="text" id="inputCode" />
+            <span id="text_show"></span>
+        </div>
+        <input id="Button1" type="button" value="确定">
+    </div>
+    <script>
+        // 1.GENERATE CAPTCHA CODE
+        // 6 NUM 0-9 A-F RANDOM STRING
+        // ARRAY 下标 从数组当中取出随机下标
+        // 2.CHECK WHEN CLICK CONFIRM
+
+        window.onload = function(){
+            var res = getCode();
+            function getCode(){
+                var arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+                var str = '';
+                for (var i = 0;i<6;i++) {
+                    // random的使用
+                    var num = Math.round(Math.random()*(15-0)+0);
+                    str += arr[num];
+                    // console.log(str);
+                }
+                return str;
+            }
+            document.getElementById('checkCode').innerText  = res; 
+            // click 事件
+            document.getElementById('linkbt').onclick = function(){
+                // 让左值等于再调一次右边
+                document.getElementById('checkCode').innerText  = getCode();
+            }
+
+            // 2.CONFIRM TO CHECK
+            document.getElementById('Button1').onclick = function(){
+                var code = document.getElementById('checkCode').innerText;
+                var inputCode = document.getElementById('inputCode').value;
+                if(code != inputCode){
+                    alert('Code that you input is not correct');
+                    document.getElementById('inputCode').value = '';
+                    return false;
+                } else {
+                    alert('Your code is right!');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
