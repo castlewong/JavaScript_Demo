@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <div class="search">
+            <input type="text" id="val" placeholder="plz input sth.">
+            <input type="submit" id="sub" style="margin-left:20px;color: sienna;">
+        </div>
+        <div class="show"></div>
+    </div>
+    <script>
+        let arr = ['LEARN HTML', 'LEARN CSS', 'LEARN JAVASCRIPT', 'LEARN VUE & RN']
+
+        // LOGIC 1 先完成展示区域的显示或者隐藏
+        let input = document.getElementById('val');
+        let show = document.getElementById('show');
+        input.onkeyup = function(){
+            show.style.display = 'block';
+        }
+        input.onblur = function(){
+            show.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
