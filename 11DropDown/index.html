@@ -7,24 +7,52 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="content">
-        <div class="search">
+    <div class="content" style="">
+        <div class="search" style="position: absolute; left: 50%; transform: translate(-50%, 0);">
             <input type="text" id="val" placeholder="plz input sth.">
-            <input type="submit" id="sub" style="margin-left:20px;color: sienna;">
+            <input type="submit" id="sub" style="color: sienna;">
         </div>
-        <div class="show"></div>
+        <div class="show" id="show" style="
+        position: absolute; left: 50%; transform: translate(-50%, 0);
+        top: 50%;
+        height: 200px;
+        margin-top: -370px;
+        text-align: center;
+        color: rgb(26, 129, 163); 
+        outline-style: solid; outline-width: 2px; width: 400px;
+        ">
+            <!-- <p>haha</p>
+            <p>haha</p> -->
+        </div>
     </div>
     <script>
-        let arr = ['LEARN HTML', 'LEARN CSS', 'LEARN JAVASCRIPT', 'LEARN VUE & RN']
+        let arr = ['learn HTML', 'LEARN CSS', 'LEARN JAVASCRIPT', 'LEARN VUE & RN']
 
         // LOGIC 1 先完成展示区域的显示或者隐藏
+        // LOGIC 2 
         let input = document.getElementById('val');
         let show = document.getElementById('show');
         input.onkeyup = function(){
             show.style.display = 'block';
+            // input.value 和 arr 的每一项进行匹配 indexOf()
+            let str = '';
+            arr.forEach((item)=>{
+                let res = item.indexOf(input.value);
+                if(res !=-1){
+                    str += '<p>'+item+'</p>';
+                }
+            })
+            // console.log(str);
+            // 如果input.value为空 || str为false的时候 给用户一个提示
+            if(!input.value || !str){
+                show.innerHTML = '<p>There is no such a thing.<p>'
+            }else{
+                show.innerHTML = str;
+            }
         }
         input.onblur = function(){
             show.style.display = 'none';
+            input.value = '';
         }
     </script>
 </body>
