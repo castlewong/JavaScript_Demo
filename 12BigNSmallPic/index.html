@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            .big{
+                width: 415px;
+                height: 400px;
+
+            }
+            .small>img{
+                width: 100px;
+                height: 100px;
+            }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="1.jpg" alt="" class="big">
+    </div>
+    <div class="small">
+            <!-- 
+            <img src="picture.jpg">	picture.jpg 位于与当前网页相同的文件夹
+            <img src="images/picture.jpg">	picture.jpg 位于当前文件夹的 images 文件夹中
+            <img src="/images/picture.jpg">	picture.jpg 当前站点根目录的 images 文件夹中
+            <img src="../picture.jpg">	picture.jpg 位于当前文件夹的上一级文件夹中
+             -->
+        <img src="1.jpg" alt="">
+        <img src="2.jpg" alt="">
+        <img src="3.jpg" alt="">
+        <img src="4.jpg" alt="">
+    </div>
+    <script>
+        // logic 本质上 放到什么上 src赋值到什么上
+        // pic 元素 .src = ''
+        // to be continued 图片尺寸不合适
+        let imgs = document.getElementsByTagName('img');
+
+        for(let i = 0; i<imgs.length;i++){
+            imgs[i].onmouseover = function(){
+                // 把当前小图的src给到大图的src
+                imgs[0].src = this.src;
+            }
+        }
+    </script>
+</body>
+</html>
